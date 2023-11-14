@@ -2,12 +2,12 @@ package christmas.domain.order;
 
 import christmas.domain.menu.Menu;
 
-public class Order {
+public class Item {
 
     private final Menu menu;
     private final int quantity;
 
-    public Order(Menu menu, int quantity) {
+    public Item(Menu menu, int quantity) {
         this.menu = menu;
         this.quantity = quantity;
     }
