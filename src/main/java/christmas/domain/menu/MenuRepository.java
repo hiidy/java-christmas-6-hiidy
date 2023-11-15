@@ -32,7 +32,7 @@ public class MenuRepository {
         return Collections.unmodifiableList(menus);
     }
 
-    public static Menu findMenuByName(String menuName) {
+    public static Menu findMenuByName(String menuName) throws IllegalArgumentException {
         return menus.stream()
                 .filter(menu -> menu.getName().equals(menuName))
                 .findFirst()
