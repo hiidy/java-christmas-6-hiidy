@@ -4,6 +4,9 @@ import christmas.domain.order.Orders;
 
 public interface DiscountPolicy {
 
-    int calculateDiscountAmount(int dayOfMonth, Orders orders);
+    boolean isApplicable(Orders orders);
 
+    int calculateDiscountAmount(Orders orders);
+
+    DiscountPolicyType getPolicy();
 }

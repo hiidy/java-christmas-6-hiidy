@@ -5,17 +5,20 @@ import christmas.domain.order.Orders;
 public class SpecialDiscount implements DiscountPolicy {
 
     private static final int SPECIAL_DISCOUNT_AMOUNT = 1000;
-    private final SpecialDayCalender eventCalendar;
+    private final SpecialDayCalender eventCalendar = new SpecialDayCalender();
 
-    public SpecialDiscount(SpecialDayCalender eventCalendar) {
-        this.eventCalendar = eventCalendar;
+    @Override
+    public boolean isApplicable(Orders orders) {
+        return eventCalendar.isStarDay(orders.getDate().getDayOfMonth());
     }
 
     @Override
-    public int calculateDiscountAmount(int dayOfMonth, Orders orders) {
-        if (eventCalendar.isStarDay(dayOfMonth)) {
-            return SPECIAL_DISCOUNT_AMOUNT;
-        }
-        return 0;
+    public int calculateDiscountAmount(Orders orders) {
+        return SPECIAL_DISCOUNT_AMOUNT;
+    }
+
+    @Override
+    public DiscountPolicyType getPolicy() {
+        return DiscountPolicyType.SPECIAL;
     }
 }
