@@ -41,7 +41,7 @@ public class OutputView {
     public static void printGiftMenu(Receipt receipt) {
         Benefits benefits = receipt.getBenefits();
         System.out.println("\n<증정 메뉴>");
-        if (benefits.getBenefits() != null) {
+        if (benefits.getGiftItem() != null) {
             System.out.println(benefits.getGiftItem());
         } else {
             System.out.println("없음");
@@ -51,7 +51,7 @@ public class OutputView {
     public static void printBenefits(Receipt receipt) {
         Benefits benefits = receipt.getBenefits();
         System.out.println("\n<혜택 내역>");
-        if (!benefits.getBenefits().isEmpty()) {
+        if (benefits.getBenefits() == null) {
             System.out.println(benefits.toString());
             return;
         }
