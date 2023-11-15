@@ -22,9 +22,6 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Order{" +
-                "menu=" + menu +
-                ", quantity=" + quantity +
-                '}';
+        return menu.getName() + " " + quantity + "개";
     }
 }
